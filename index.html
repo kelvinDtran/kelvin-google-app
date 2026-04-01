@@ -10,8 +10,8 @@
   :root{--gb:#4285F4;--gr:#EA4335;--gy:#FBBC05;--gg:#34A853;}
   body{font-family:'Inter',sans-serif;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:2em;}
   .gbar{width:100%;max-width:560px;height:4px;background:linear-gradient(90deg,var(--gb) 25%,var(--gr) 25%,var(--gr) 50%,var(--gy) 50%,var(--gy) 75%,var(--gg) 75%);border-radius:2px;margin-bottom:36px;}
-  .g-logo{font-size:32px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px;}
-  .g-logo span:nth-child(1){color:var(--gb)}.g-logo span:nth-child(2){color:var(--gr)}.g-logo span:nth-child(3){color:var(--gy)}.g-logo span:nth-child(4){color:var(--gb)}.g-logo span:nth-child(5){color:var(--gg)}.g-logo span:nth-child(6){color:var(--gr)}
+  .app-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#aaa;margin-bottom:6px;}
+  .disclaimer{font-size:10px;color:#999;margin-top:28px;text-align:center;max-width:500px;line-height:1.6;}
   h1{font-size:22px;font-weight:700;color:#202124;margin-bottom:4px;}
   .sub{font-size:13px;color:#5F6368;margin-bottom:32px;}
   .cards{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;max-width:560px;}
@@ -25,7 +25,7 @@
 </head>
 <body>
   <div class="gbar"></div>
-  <div class="g-logo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div>
+  <div class="app-label">Job Application Materials</div>
   <h1>Kelvin Tran</h1>
   <div class="sub">Founder &middot; AI Engineer &middot; Stanford MBA &middot; Two acquisitions</div>
   <div class="cards">
@@ -42,5 +42,6 @@
       <div class="arrow">View Cover Letter →</div>
     </a>
   </div>
+  <div class="disclaimer">Personal job application materials created by Kelvin Tran. Not affiliated with or endorsed by Google LLC.</div>
 </body>
 </html>
