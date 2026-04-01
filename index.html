@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelvin Tran — Google Application</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{--gb:#4285F4;--gr:#EA4335;--gy:#FBBC05;--gg:#34A853;}
+  body{font-family:'Inter',sans-serif;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:2em;}
+  .gbar{width:100%;max-width:560px;height:4px;background:linear-gradient(90deg,var(--gb) 25%,var(--gr) 25%,var(--gr) 50%,var(--gy) 50%,var(--gy) 75%,var(--gg) 75%);border-radius:2px;margin-bottom:36px;}
+  .g-logo{font-size:32px;font-weight:700;letter-spacing:-.02em;margin-bottom:6px;}
+  .g-logo span:nth-child(1){color:var(--gb)}.g-logo span:nth-child(2){color:var(--gr)}.g-logo span:nth-child(3){color:var(--gy)}.g-logo span:nth-child(4){color:var(--gb)}.g-logo span:nth-child(5){color:var(--gg)}.g-logo span:nth-child(6){color:var(--gr)}
+  h1{font-size:22px;font-weight:700;color:#202124;margin-bottom:4px;}
+  .sub{font-size:13px;color:#5F6368;margin-bottom:32px;}
+  .cards{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;max-width:560px;}
+  .card{display:flex;flex-direction:column;gap:8px;padding:24px 28px;border:1px solid #DADCE0;border-radius:12px;text-decoration:none;color:#202124;width:240px;transition:box-shadow .2s,border-color .2s;}
+  .card:hover{box-shadow:0 2px 12px rgba(0,0,0,.12);border-color:#aaa;}
+  .card .icon{font-size:24px;}
+  .card h3{font-size:15px;font-weight:700;}
+  .card p{font-size:12px;color:#5F6368;line-height:1.5;}
+  .card .arrow{font-size:13px;color:var(--gb);font-weight:600;margin-top:4px;}
+</style>
+</head>
+<body>
+  <div class="gbar"></div>
+  <div class="g-logo"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div>
+  <h1>Kelvin Tran</h1>
+  <div class="sub">Founder &middot; AI Engineer &middot; Stanford MBA &middot; Two acquisitions</div>
+  <div class="cards">
+    <a href="resume.html" class="card">
+      <div class="icon">📄</div>
+      <h3>Resume</h3>
+      <p>1-page compact resume with Google stack alignment. Printable as PDF.</p>
+      <div class="arrow">View Resume →</div>
+    </a>
+    <a href="cover.html" class="card">
+      <div class="icon">✉️</div>
+      <h3>Cover Letter</h3>
+      <p>Personal cover letter tailored to Google's mission and culture.</p>
+      <div class="arrow">View Cover Letter →</div>
+    </a>
+  </div>
+</body>
+</html>

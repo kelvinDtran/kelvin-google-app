@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelvin Tran — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gb: #4285F4; --gr: #EA4335; --gy: #FBBC05; --gg: #34A853;
+    --text: #202124; --text2: #5F6368; --text3: #80868B;
+    --border: #DADCE0; --bg2: #F8F9FA;
+  }
+
+  html, body { background: #fff; color: var(--text); font-family: 'Inter', 'Google Sans', sans-serif; }
+
+  .page {
+    max-width: 860px; margin: 0 auto;
+    padding: 28px 36px 36px;
+  }
+
+  /* Google bar */
+  .gbar { height: 4px; background: linear-gradient(90deg,var(--gb) 25%,var(--gr) 25%,var(--gr) 50%,var(--gy) 50%,var(--gy) 75%,var(--gg) 75%); margin-bottom: 20px; }
+
+  /* Header */
+  .header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1em; margin-bottom: 14px; }
+  .header-left h1 { font-size: 26px; font-weight: 700; letter-spacing: -.02em; color: var(--text); }
+  .header-left .title { font-size: 13px; color: var(--gb); font-weight: 600; margin-top: 2px; letter-spacing: .02em; }
+  .header-right { text-align: right; font-size: 11.5px; color: var(--text2); line-height: 1.65; }
+  .header-right a { color: var(--gb); text-decoration: none; }
+
+  /* Stats bar */
+  .stats { display: flex; gap: 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+  .stat { flex: 1; padding: 9px 12px; text-align: center; border-right: 1px solid var(--border); }
+  .stat:last-child { border-right: none; }
+  .stat-num { font-size: 16px; font-weight: 700; }
+  .stat-lbl { font-size: 9.5px; font-weight: 500; color: var(--text2); text-transform: uppercase; letter-spacing: .06em; margin-top: 1px; }
+
+  /* Summary */
+  .summary { font-size: 12px; color: var(--text2); line-height: 1.6; margin-bottom: 16px; padding: 10px 14px; background: var(--bg2); border-radius: 6px; border-left: 3px solid var(--gb); }
+
+  /* Two-column body */
+  .body { display: grid; grid-template-columns: 1fr 280px; gap: 24px; }
+
+  /* Section label */
+  .sec-label { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gb); border-bottom: 1.5px solid var(--border); padding-bottom: 4px; margin-bottom: 10px; }
+
+  /* Experience */
+  .exp { margin-bottom: 14px; }
+  .exp-header { display: flex; justify-content: space-between; align-items: baseline; }
+  .exp-co { font-size: 13px; font-weight: 700; color: var(--text); }
+  .exp-dates { font-size: 10.5px; color: var(--text3); }
+  .exp-role { font-size: 11px; color: var(--gb); font-weight: 600; margin: 1px 0 5px; }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li { font-size: 11px; color: var(--text2); line-height: 1.5; padding-left: 12px; position: relative; margin-bottom: 3px; }
+  .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--gb); font-size: 10px; top: 1px; }
+  .exp-bullets li strong { color: var(--text); font-weight: 600; }
+
+  /* Tech badge */
+  .tech-row { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+  .badge { font-size: 9.5px; font-weight: 500; padding: 2px 7px; border-radius: 999px; border: 1px solid; }
+  .b-blue { border-color: rgba(66,133,244,.4); color: var(--gb); background: rgba(66,133,244,.06); }
+  .b-green { border-color: rgba(52,168,83,.4); color: var(--gg); background: rgba(52,168,83,.06); }
+  .b-red { border-color: rgba(234,67,53,.3); color: var(--gr); background: rgba(234,67,53,.06); }
+  .b-yellow { border-color: rgba(251,188,5,.5); color: #9a6e00; background: rgba(251,188,5,.08); }
+
+  /* Right column */
+  .sidebar {}
+
+  /* Skills */
+  .skill-group { margin-bottom: 10px; }
+  .skill-group h4 { font-size: 10px; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 3px; }
+  .skill-tag { font-size: 10px; padding: 2px 7px; background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; color: var(--text2); }
+  .skill-tag.highlight { background: rgba(66,133,244,.08); border-color: rgba(66,133,244,.3); color: var(--gb); font-weight: 500; }
+
+  /* Education */
+  .edu-item { margin-bottom: 8px; }
+  .edu-item h4 { font-size: 12px; font-weight: 700; color: var(--text); }
+  .edu-item p { font-size: 10.5px; color: var(--text2); }
+  .edu-item .gpa { font-size: 10px; font-weight: 600; color: var(--gg); }
+
+  /* Awards */
+  .award-list { list-style: none; }
+  .award-list li { font-size: 10.5px; color: var(--text2); padding: 2px 0; border-bottom: 1px solid var(--bg2); }
+  .award-list li:last-child { border-bottom: none; }
+  .award-list li strong { color: var(--text); }
+
+  /* Divider */
+  hr { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+
+  /* Print button */
+  .print-btn {
+    position: fixed; bottom: 24px; right: 24px;
+    background: var(--gb); color: #fff;
+    border: none; padding: 10px 20px; border-radius: 24px;
+    font-size: 13px; font-weight: 600; cursor: pointer;
+    box-shadow: 0 2px 8px rgba(66,133,244,.4);
+    font-family: inherit;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .print-btn:hover { background: #1a73e8; }
+
+  @media print {
+    .print-btn { display: none; }
+    .page { padding: 16px 24px; max-width: 100%; }
+    html, body { font-size: 11px; }
+    .gbar { margin-bottom: 14px; }
+  }
+  @page { margin: 0.5in; size: letter; }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="gbar"></div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <h1>Kelvin Tran</h1>
+      <div class="title">Founder &middot; AI Engineer &middot; Product Leader &middot; Stanford MBA</div>
+    </div>
+    <div class="header-right">
+      kelvintran1000@gmail.com &nbsp;&bull;&nbsp; 602.515.8697<br>
+      <a href="https://linkedin.com/in/kelvintran888">linkedin.com/in/kelvintran888</a><br>
+      Chandler, AZ &nbsp;&bull;&nbsp; Open to remote or relocation
+    </div>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num" style="color:var(--gb);">$3.3M</div>
+      <div class="stat-lbl">Raised</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" style="color:var(--gr);">$2.4M</div>
+      <div class="stat-lbl">ARR at Exit</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" style="color:var(--gy);-webkit-text-fill-color:var(--gy);">$50M+</div>
+      <div class="stat-lbl">Annual Savings</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" style="color:var(--gg);">2</div>
+      <div class="stat-lbl">Companies Acquired</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" style="color:var(--gb);">90%+</div>
+      <div class="stat-lbl">Revenue Personally Closed</div>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="summary">
+    Founder, AI engineer, and product leader with two acquired companies by age 24. Scaled Solisa AI from zero to $2.4M ARR, personally closing 90%+ of revenue in a 100% founder-led motion. At Renesas, architected AI platforms delivering $50M+ in annual efficiency gains serving engineers globally — on <strong>GCP</strong> and <strong>Kubernetes</strong> infrastructure. Stanford MBA + M.S. Robotics &amp; AI. Deep hands-on fluency in <strong>TensorFlow</strong>, <strong>Go</strong>, distributed systems, and production-scale RAG pipelines.
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- LEFT: EXPERIENCE -->
+    <div class="main">
+      <div class="sec-label">Experience</div>
+
+      <!-- SOLISA -->
+      <div class="exp">
+        <div class="exp-header">
+          <span class="exp-co">Solisa AI</span>
+          <span class="exp-dates">Feb 2024 – Jan 2026 &nbsp;·&nbsp; Palo Alto, CA</span>
+        </div>
+        <div class="exp-role">Co-Founder, CEO &amp; AI Engineer &nbsp;·&nbsp; Acquired 2026</div>
+        <ul class="exp-bullets">
+          <li>Scaled enterprise AI platform for insurance from zero to <strong>$2.4M ARR</strong> in 18 months with 9 clients including United Healthcare, Farmers Insurance, and Intact Financial</li>
+          <li>Personally closed <strong>90%+ of revenue</strong> — the entire company ran a 100% founder-led sales motion; raised <strong>$3.3M</strong> leading all investor relations and due diligence</li>
+          <li>Architected <strong>RAG pipelines</strong>, LLM integrations (LangChain, Hugging Face), and containerized services on <strong>GCP + Kubernetes</strong> with zero-downtime CI/CD</li>
+          <li>Shipped full-stack automation (Zapier, HubSpot, ElevenLabs) boosting customer sales by <strong>400%+</strong>; built monitoring, alerting, and distributed tracing systems</li>
+        </ul>
+        <div class="tech-row">
+          <span class="badge b-blue">Python</span><span class="badge b-blue">Go</span>
+          <span class="badge b-blue">GCP</span><span class="badge b-blue">Kubernetes</span>
+          <span class="badge b-blue">Docker</span><span class="badge b-blue">RAG</span>
+          <span class="badge b-blue">LangChain</span><span class="badge b-blue">TensorFlow</span>
+          <span class="badge b-blue">CI/CD</span>
+        </div>
+      </div>
+
+      <!-- RENESAS -->
+      <div class="exp">
+        <div class="exp-header">
+          <span class="exp-co">Renesas Electronics</span>
+          <span class="exp-dates">May 2021 – Dec 2024 &nbsp;·&nbsp; Chandler, AZ</span>
+        </div>
+        <div class="exp-role">Software Engineer &amp; Project Manager</div>
+        <ul class="exp-bullets">
+          <li><strong>Florence AI:</strong> Architected production RAG knowledge retrieval on <strong>GCP</strong> — NLP and embedding pipelines serving hundreds of engineers globally, delivering <strong>$50M+</strong> in annual efficiency gains</li>
+          <li><strong>One Flow:</strong> Designed and delivered a distributed workflow + database system integrating <strong>7 major acquisitions</strong> ($700M–$1.4B each); central coordination layer across Product, Engineering, and Global Sales</li>
+          <li><strong>LLP / SWIFT:</strong> Predictive analytics on semiconductor fabrication data to prevent failures at scale; replaced Visio/SharePoint with custom internal tooling, reducing manual cycles by <strong>30%</strong></li>
+        </ul>
+        <div class="tech-row">
+          <span class="badge b-green">Python</span><span class="badge b-green">Go</span>
+          <span class="badge b-green">GCP</span><span class="badge b-green">NLP</span>
+          <span class="badge b-green">RAG</span><span class="badge b-green">PostgreSQL</span>
+          <span class="badge b-green">Tableau</span><span class="badge b-green">Distributed Systems</span>
+        </div>
+      </div>
+
+      <!-- ACCOMPANIAN -->
+      <div class="exp">
+        <div class="exp-header">
+          <span class="exp-co">Accompanian</span>
+          <span class="exp-dates">Oct 2023 – May 2024 &nbsp;·&nbsp; Tempe, AZ</span>
+        </div>
+        <div class="exp-role">Co-Founder &nbsp;·&nbsp; Acquired</div>
+        <ul class="exp-bullets">
+          <li>Built a behavioral analytics mobile platform from zero to <strong>4,000+ active users</strong>; drove <strong>400% engagement growth</strong> through data-driven product iteration; acquired</li>
+          <li>Owned full product lifecycle: engineering, UX, marketing, and PR; funded via ASU Venture Devils</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: SKILLS + EDUCATION + AWARDS -->
+    <div class="sidebar">
+
+      <!-- GOOGLE TECH ALIGNMENT -->
+      <div class="sec-label" style="color:var(--gr);">Google Stack Alignment</div>
+      <div class="skill-group">
+        <div class="skill-tags">
+          <span class="skill-tag highlight">Go</span>
+          <span class="skill-tag highlight">GCP</span>
+          <span class="skill-tag highlight">Kubernetes</span>
+          <span class="skill-tag highlight">TensorFlow</span>
+          <span class="skill-tag highlight">Vertex AI</span>
+          <span class="skill-tag highlight">BigQuery</span>
+          <span class="skill-tag highlight">Pub/Sub</span>
+          <span class="skill-tag highlight">gRPC</span>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- SKILLS -->
+      <div class="sec-label">Skills</div>
+      <div class="skill-group">
+        <h4>Languages</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span><span class="skill-tag">Go</span>
+          <span class="skill-tag">TypeScript</span><span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">C++</span><span class="skill-tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>AI / ML</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">TensorFlow</span><span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">Hugging Face</span><span class="skill-tag">LangChain</span>
+          <span class="skill-tag">RAG</span><span class="skill-tag">NLP</span>
+          <span class="skill-tag">Vector Search</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Cloud &amp; Infra</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">GCP</span><span class="skill-tag">AWS</span>
+          <span class="skill-tag">Kubernetes</span><span class="skill-tag">Docker</span>
+          <span class="skill-tag">CI/CD</span><span class="skill-tag">REST / gRPC</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Data &amp; Observability</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">PostgreSQL</span><span class="skill-tag">NoSQL</span>
+          <span class="skill-tag">ETL/ELT</span><span class="skill-tag">Distributed Tracing</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Business</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Enterprise Sales</span><span class="skill-tag">Fundraising</span>
+          <span class="skill-tag">GTM Strategy</span><span class="skill-tag">OKRs</span>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- EDUCATION -->
+      <div class="sec-label">Education</div>
+      <div class="edu-item">
+        <h4>Stanford Graduate School of Business</h4>
+        <p>Master of Business Administration</p>
+        <span class="gpa">GPA 3.8</span>
+      </div>
+      <div class="edu-item">
+        <h4>Arizona State University</h4>
+        <p>M.S. Robotics &amp; AI (Autonomous Systems)</p>
+        <span class="gpa">GPA 3.7</span>
+      </div>
+      <div class="edu-item">
+        <h4>Arizona State University</h4>
+        <p>B.S. Computer Science</p>
+        <span class="gpa">GPA 3.7</span>
+      </div>
+
+      <hr>
+
+      <!-- AWARDS -->
+      <div class="sec-label">Recognition</div>
+      <ul class="award-list">
+        <li><strong>Top 10 Global</strong> — Startup World Cup SF (50K+ applicants)</li>
+        <li><strong>Y Combinator S24</strong> — Invited</li>
+        <li><strong>1st Place</strong> — ASU Startup Village Hackathon</li>
+        <li><strong>3× Winner</strong> — Venture Devils, ASU</li>
+        <li><strong>Judge's Choice</strong> — Tech Devils, ASU</li>
+        <li><strong>Top Award</strong> — Lab to Launch &amp; PitchForce SF</li>
+        <li><strong>Bilingual</strong> — English &amp; Vietnamese (native)</li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+<button class="print-btn" onclick="window.print()">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+  Save as PDF
+</button>
+
+</body>
+</html>
